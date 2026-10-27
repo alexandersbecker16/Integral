@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Integral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="brand-block">
+          <h1 class="brand">Integral</h1>
+          <p class="tagline">See the area. Move the bounds. Watch the value change.</p>
+        </div>
+
+        <div class="mode-switch" role="tablist" aria-label="Dimension">
+          <button class="mode-btn active" data-mode="2d" role="tab" aria-selected="true">2D</button>
+          <button class="mode-btn" data-mode="3d" role="tab" aria-selected="false">3D</button>
+        </div>
+      </header>
+
+      <section class="equation-bar" aria-label="Equation">
+        <label class="eq-label" for="equation" id="eq-label">f(x) =</label>
+        <input
+          id="equation"
+          class="eq-input"
+          type="text"
+          spellcheck="false"
+          autocomplete="off"
+          value="sin(x) + 1.5"
+          placeholder="try x^2 or sqrt(x)"
+        />
+        <div class="result" id="result" aria-live="polite">
+          <span class="result-symbol" id="result-symbol">∫</span>
+          <span class="result-value" id="result-value">—</span>
+        </div>
+      </section>
+
+      <main class="stage">
+        <canvas id="view-2d" class="view active"></canvas>
+        <canvas id="view-3d" class="view"></canvas>
+
+        <aside class="hud">
+          <div class="hud-row">
+            <span class="hud-k">Bounds</span>
+            <span class="hud-v" id="bounds-text">a = −1 · b = 2</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-k">Hint</span>
+            <span class="hud-v" id="hint-text">Drag the handles · drag empty space to pan</span>
+          </div>
+        </aside>
+
+        <div class="presets" id="presets"></div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
